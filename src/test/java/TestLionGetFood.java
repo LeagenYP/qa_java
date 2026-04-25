@@ -25,7 +25,7 @@ public class TestLionGetFood {
     @Before
     public void setUp() throws Exception {
         felineMock = mock(Feline.class);
-        lion = new Lion("Самец", felineMock, animalKind);
+        lion = new Lion("Самец", felineMock);
     }
 
     @Parameterized.Parameters(name = "Тестовые данные: {0}, {1}")
@@ -40,7 +40,7 @@ public class TestLionGetFood {
     @Test
     public void testLionGetFood() throws Exception {
         when(felineMock.getFood(animalKind)).thenReturn(expectedFoodList);
-        List<String> actualFoodList = lion.getFood();
+        List<String> actualFoodList = lion.getFood(animalKind);
         assertEquals(expectedFoodList, actualFoodList);
     }
 }
